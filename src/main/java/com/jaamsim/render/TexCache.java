@@ -36,10 +36,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
-import com.jogamp.opengl.GL2GL3;
-import com.jogamp.opengl.GLException;
 
 import com.jaamsim.ui.LogBox;
+import com.jogamp.opengl.GL2GL3;
+import com.jogamp.opengl.GLException;
 import com.jogamp.opengl.GLExtensions;
 
 /**
@@ -91,7 +91,7 @@ public class TexCache {
 
 	private final EntryLoaderRunner entryLoader = new EntryLoaderRunner();
 
-	private Renderer _renderer;
+	private final Renderer _renderer;
 
 	public static final URI BAD_TEXTURE;
 	private int badTextureID = -1;
@@ -308,10 +308,14 @@ public class TexCache {
 				_renderer.usingVRAM(le.width*le.height*4);
 			}
 
+
 			// Note we do not let openGL generate compressed mipmaps because it stalls the render thread really badly
 			// in theory it could be generated in the worker thread, but not yet
-			if (!le.compressed)
+			if (!le.compressed) {
+				System.out.printf("Loading image: %s\n", le.imageURI.toString());
+				System.out.flush();
 				gl.glGenerateMipmap(GL2GL3.GL_TEXTURE_2D);
+			}
 		} catch (GLException ex) {
 			// We do not have enough texture memory
 			LogBox.renderLog(String.format("Error loading texture: %s", le.imageURI.toString()));
