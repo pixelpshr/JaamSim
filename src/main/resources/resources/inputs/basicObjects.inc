@@ -15,6 +15,9 @@ Define ObjectType {
                     EventSchedule
                     FileToVector
                     FileToMatrix
+                    FileToTSRList
+                    FileToStringVector
+                    FileToStringMatrix
                   }
 
 Define TextModel  {
@@ -31,6 +34,9 @@ Define ImageModel {
                     EventScheduleIconModel
                     FileToVectorIconModel
                     FileToMatrixIconModel
+                    FileToTSRListIconModel
+                    FileToStringVectorIconModel
+                    FileToStringMatrixIconModel
                   }
 
 TimeSeriesIconModel     ImageFile { '<res>/images/TimeSeries-256.png'   }  Transparent { TRUE }
@@ -42,6 +48,9 @@ ValueSequenceIconModel  ImageFile { '<res>/images/ValueSequence-256.png'}  Trans
 EventScheduleIconModel  ImageFile { '<res>/images/EventSchedule-256.png'}  Transparent { TRUE }
 FileToVectorIconModel   ImageFile { '<res>/images/FileToVector-256.png' }  Transparent { TRUE }
 FileToMatrixIconModel   ImageFile { '<res>/images/FileToMatrix-256.png' }  Transparent { TRUE }
+FileToTSRListIconModel   ImageFile { '<res>/images/FileToVector-256.png' }  Transparent { TRUE }
+FileToStringVectorIconModel   ImageFile { '<res>/images/FileToVector-256.png' }  Transparent { TRUE }
+FileToStringMatrixIconModel   ImageFile { '<res>/images/FileToMatrix-256.png' }  Transparent { TRUE }
 
 Group                   JavaClass { com.jaamsim.basicsim.Group                          } Palette { 'Basic Objects' } DragAndDrop { FALSE }
 ScriptEntity            JavaClass { com.jaamsim.basicsim.ScriptEntity                   } Palette { 'Basic Objects' } DragAndDrop { FALSE }
@@ -59,6 +68,9 @@ ValueSequence           JavaClass { com.jaamsim.BasicObjects.ValueSequence      
 EventSchedule           JavaClass { com.jaamsim.BasicObjects.EventSchedule              } Palette { 'Basic Objects' } DefaultDisplayModel { EventScheduleIconModel } IconFile { '<res>/images/EventSchedule-24.png' }
 FileToVector            JavaClass { com.jaamsim.BasicObjects.FileToVector               } Palette { 'Basic Objects' } DefaultDisplayModel { FileToVectorIconModel  } IconFile { '<res>/images/FileToVector-24.png'  }
 FileToMatrix            JavaClass { com.jaamsim.BasicObjects.FileToMatrix               } Palette { 'Basic Objects' } DefaultDisplayModel { FileToMatrixIconModel  } IconFile { '<res>/images/FileToMatrix-24.png'  }
+FileToTSRList           JavaClass { com.jaamsim.BasicObjects.FileToTSRList              } Palette { 'Basic Objects' } DefaultDisplayModel { FileToTSRListIconModel  } IconFile { '<res>/images/FileToVector-24.png'  }
+FileToStringVector      JavaClass { com.jaamsim.BasicObjects.FileToStringVector         } Palette { 'Basic Objects' } DefaultDisplayModel { FileToStringVectorIconModel  } IconFile { '<res>/images/FileToVector-24.png'  }
+FileToStringMatrix      JavaClass { com.jaamsim.BasicObjects.FileToStringMatrix         } Palette { 'Basic Objects' } DefaultDisplayModel { FileToStringMatrixIconModel  } IconFile { '<res>/images/FileToMatrix-24.png'  }
 
 Group               Description { 'Collection of entities used as an convenience for specifying model inputs.' }
 ScriptEntity        Description { 'Executes a series of commands in simulated time. Used primarily for recording videos.' }
@@ -76,3 +88,6 @@ ValueSequence       Description { 'Generates a repeating sequence of numerical v
 EventSchedule       Description { 'Generates a sequence inter-arrival times from a list of event times.' }
 FileToVector        Description { 'Populates a one-dimensional array with numeric data from a specified file.' }
 FileToMatrix        Description { 'Populates a two-dimensional array with numeric data from a specified file.' }
+FileToTSRList       Description { 'Populates a one-dimensional array with Time Stamped Record data from a specified file.' }
+FileToStringVector  Description { 'Populates a one-dimensional array with String data from a specified file.' }
+FileToStringMatrix  Description { 'Populates a two-dimensional array with String data from a specified file.' }
